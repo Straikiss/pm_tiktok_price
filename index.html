@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title>ТикТок цена за публикацию</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			* {
+				margin: 0 auto;
+				padding: 0;
+			}
+			body {
+				background: #f8f9fa;
+			}
+			input {
+				border: 1px solid #6f42c1;
+				margin-bottom: 20px;
+				font-family: Arial;
+				border-radius: 3px;
+				background: #fff;
+				font-size: 16px;
+				display: block;
+				outline: none;
+				padding: 10px;
+			}
+			input:last-of-type {
+				margin-bottom: 0;
+			}
+			p {
+				font-family: Arial;
+				margin-bottom: 5px;
+				font-size: 16px;
+			}
+			input:focus, input[disabled] {
+				background: #6f42c1;
+				color: #fff;
+			}
+			.block-def {
+				box-shadow: 0 0 10px #dee2e6;
+				width: fit-content;
+				border-radius: 3px;
+				margin-top: 40px;
+				background: #fff;
+				padding: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="block-def">
+			<p>Подписчиков:</p>
+			<input id="1" onblur="price()">
+			<p>Просмотров за 1 видео:</p>
+			<input id="2" onblur="price()">
+			<p>Просмотров за 2 видео:</p>
+			<input id="3" onblur="price()">
+			<p>Просмотров за 3 видео:</p>
+			<input id="4" onblur="price()">
+			<p>Просмотров за 4 видео:</p>
+			<input id="5" onblur="price()">
+			<p>Стоимость публикации:</p>
+			<input id="0" disabled>
+		</div>
+	</body>
+	<script>
+		function price(){
+			let PRICE_PER_VIEW_BAD = 0.010;
+			let PRICE_PER_VIEW_GOOD = 0.1;
+			let SCALE = 5;
+			let price = 0;
+
+			let SUBSCRIBERS = parseInt(document.getElementById("1").value);
+
+			let VIEWS_1 = parseInt(document.getElementById("2").value);
+			let VIEWS_2 = parseInt(document.getElementById("3").value);
+			let VIEWS_3 = parseInt(document.getElementById("4").value);
+			let VIEWS_4 = parseInt(document.getElementById("5").value);
+
+			let VIEWS = VIEWS_1 + VIEWS_2 + VIEWS_3 + VIEWS_4;
+
+			if(SUBSCRIBERS == ((VIEWS / 100) * SCALE)){
+				price = VIEWS * PRICE_PER_VIEW_GOOD;
+			} 
+			else {
+				price = VIEWS * PRICE_PER_VIEW_BAD;
+			}
+
+			document.getElementById("0").value = price;
+		}
+	</script>
+</html>
