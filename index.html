@@ -33,7 +33,7 @@
 			h2 {
 				font-weight: normal;
 				font-family: Arial;
-				margin-bottom: 5px;
+				margin-bottom: 20px;
 				text-align: center;
 				font-size: 18px;
 			}
@@ -56,10 +56,10 @@
 				display: flex;
 			}
 			.ml {
-				margin-left: 20px;
+				margin-left: 5px;
 			}
 			.mr {
-				margin-right: 20px;
+				margin-right: 5px;
 			}
 		</style>
 	</head>
@@ -67,30 +67,46 @@
 		<div class="row">
 			<div class="block-def-content mr">
 				<h2>Данные ТикТок</h2>
-				<div class="block-def">
-					<p>Подписчиков:</p>
-					<input id="1" onblur="price();" value="464">
-					<p>Просмотров за 1 видео:</p>
-					<input id="2" onblur="price();" value="1256">
-					<p>Просмотров за 2 видео:</p>
-					<input id="3" onblur="price();" value="456">
-					<p>Просмотров за 3 видео:</p>
-					<input id="4" onblur="price();" value="202">
-					<p>Просмотров за 4 видео:</p>
-					<input id="5" onblur="price();" value="239800">
-					<p>Стоимость публикации:</p>
-					<input id="0" disabled>
+				<div class="row">
+					<div class="block-def mr">
+						<p>Просмотров за 1 видео:</p>
+						<input id="view_1" onblur="price();" value="1261">
+						<p>Просмотров за 2 видео:</p>
+						<input id="view_2" onblur="price();" value="467">
+						<p>Просмотров за 3 видео:</p>
+						<input id="view_3" onblur="price();" value="209">
+						<p>Просмотров за 4 видео:</p>
+						<input id="view_4" onblur="price();" value="275400">
+					</div>
+					<div class="block-def ml">
+						<p>Лайков за 1 видео:</p>
+						<input id="like_1" onblur="price();" value="8">
+						<p>Лайков за 2 видео:</p>
+						<input id="like_2" onblur="price();" value="9">
+						<p>Лайков за 3 видео:</p>
+						<input id="like_3" onblur="price();" value="7">
+						<p>Лайков за 4 видео:</p>
+						<input id="like_4" onblur="price();" value="2271">
+					</div>
 				</div>
+				<p style="margin-top: 20px;">Стоимость публикации:</p>
+				<input style="margin-left: 0;" id="price_per_task" disabled>
 			</div>
 			<div class="block-def-content ml">
 				<h2>Настройки</h2>
 				<div class="block-def">
-					<p>Процент подписчиков:</p>
-					<input id="6" onblur="price();" value="5">
-					<p>Цена за хороший просмотр:</p>
-					<input id="7" onblur="price();" value="0.1">
-					<p>Цена за плохой просмотр:</p>
-					<input id="8" onblur="price();" value="0.01">
+					<p>Цена за просмотр:</p>
+					<input id="price_per_view" onblur="price();" value="0.01">
+					<p>Подписчиков:</p>
+					<input id="subscribers" onblur="price();" value="464">
+					<p>Подписчики к лайкам (%):</p>
+					<input id="likes_to_count" onblur="price();" value="10">
+					<p>Цена от лайков (%):</p>
+					<input id="likes_to_price" onblur="price();" value="50">
+					<p>Процент от подписчиков:</p>
+					<input id="subscribers_to_count" onblur="price();" value="5">
+					<p>Цена от подписчиков (%):</p>
+					<input id="subscribers_to_price" onblur="price();" value="25">
 				</div>
 			</div>
 		</div>
@@ -99,26 +115,39 @@
 		function price(){
 			let price = 0;
 
-			let SCALE = parseFloat(document.getElementById("6").value);
-			let PRICE_PER_VIEW_GOOD = parseFloat(document.getElementById("7").value);
-			let PRICE_PER_VIEW_BAD = parseFloat(document.getElementById("8").value);
-			let SUBSCRIBERS = parseFloat(document.getElementById("1").value);
+			let VIEWS_1 = parseFloat(document.getElementById("view_1").value);
+			let VIEWS_2 = parseFloat(document.getElementById("view_2").value);
+			let VIEWS_3 = parseFloat(document.getElementById("view_3").value);
+			let VIEWS_4 = parseFloat(document.getElementById("view_4").value);
 
-			let VIEWS_1 = parseFloat(document.getElementById("2").value);
-			let VIEWS_2 = parseFloat(document.getElementById("3").value);
-			let VIEWS_3 = parseFloat(document.getElementById("4").value);
-			let VIEWS_4 = parseFloat(document.getElementById("5").value);
+			let LIKES_1 = parseFloat(document.getElementById("like_1").value);
+			let LIKES_2 = parseFloat(document.getElementById("like_2").value);
+			let LIKES_3 = parseFloat(document.getElementById("like_3").value);
+			let LIKES_4 = parseFloat(document.getElementById("like_4").value);
+
+			let PRICE_PER_VIEW = parseFloat(document.getElementById("price_per_view").value);
+			let SUBSCRIBERS = parseFloat(document.getElementById("subscribers").value);
+			let LIKES_TO_COUNT = parseFloat(document.getElementById("likes_to_count").value);
+			let SUBSCRIBERS_TO_COUNT = parseFloat(document.getElementById("subscribers_to_count").value);
+			let SUBSCRIBERS_TO_PRICE = parseFloat(document.getElementById("subscribers_to_price").value);
+			let LIKES_TO_PRICE = parseFloat(document.getElementById("likes_to_price").value);
 
 			let VIEWS = VIEWS_1 + VIEWS_2 + VIEWS_3 + VIEWS_4;
+			let LIKES = LIKES_1 + LIKES_2 + LIKES_3 + LIKES_4;
 
-			if(SUBSCRIBERS >= ((VIEWS / 100) * SCALE)){
-				price = VIEWS * PRICE_PER_VIEW_GOOD;
+			if(LIKES >= (SUBSCRIBERS / 100) * LIKES_TO_COUNT){
+				price = VIEWS * PRICE_PER_VIEW;
+				price += (price / 100) * LIKES_TO_PRICE;
 			} 
-			else {
-				price = VIEWS * PRICE_PER_VIEW_BAD;
+			else{
+				price = VIEWS * PRICE_PER_VIEW;
 			}
 
-			document.getElementById("0").value = price;
+			if(SUBSCRIBERS >= (VIEWS / 100) * SUBSCRIBERS_TO_COUNT){
+				price += (price / 100) * SUBSCRIBERS_TO_PRICE;
+			}
+
+			document.getElementById("price_per_task").value = price;
 		}
 	</script>
 </html>
