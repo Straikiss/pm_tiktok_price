@@ -21,17 +21,18 @@ function price(){
 	let VIEWS = VIEWS_1 + VIEWS_2 + VIEWS_3 + VIEWS_4;
 	let LIKES = LIKES_1 + LIKES_2 + LIKES_3 + LIKES_4;
 
+	document.getElementById("count_views").value = VIEWS;
+	document.getElementById("count_likes").value = LIKES;
+
+	price = VIEWS * PRICE_PER_VIEW;
+
 	if(LIKES >= (VIEWS / 100) * LIKES_TO_COUNT){
-		price = VIEWS * PRICE_PER_VIEW;
 		price += (price / 100) * LIKES_TO_PRICE;
 	} 
-	else{
-		price = VIEWS * PRICE_PER_VIEW;
-	}
 
 	// if(SUBSCRIBERS >= (VIEWS / 100) * SUBSCRIBERS_TO_COUNT){
 	// 	price += (price / 100) * SUBSCRIBERS_TO_PRICE;
 	// }
 
-	document.getElementById("price_per_task").value = parseInt(price) + " рублей";
+	document.getElementById("price_per_task").value = parseInt(price) + "р";
 }

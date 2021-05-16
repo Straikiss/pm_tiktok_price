@@ -21,6 +21,7 @@
 				display: block;
 				outline: none;
 				padding: 10px;
+				width: 180px;
 			}
 			input:last-of-type {
 				margin-bottom: 0;
@@ -58,7 +59,7 @@
 				box-shadow: 0 0 10px #dee2e6;
 				border-radius: 3px;
 				background: #fff;
-				padding: 40px;
+				padding: 20px;
 			}
 			.row {
 				display: flex;
@@ -85,6 +86,7 @@
 						<input id="view_3" onblur="price();" value="209">
 						<p>Просмотров за 4 видео:</p>
 						<input id="view_4" onblur="price();" value="275400">
+						<input style="font-size: 16px; color: #adb5bd;" id="count_views" disabled>
 					</div>
 					<div class="block-def ml">
 						<p>Лайков за 1 видео:</p>
@@ -95,6 +97,7 @@
 						<input id="like_3" onblur="price();" value="7">
 						<p>Лайков за 4 видео:</p>
 						<input id="like_4" onblur="price();" value="2271">
+						<input style="font-size: 16px; color: #adb5bd;" id="count_likes" disabled>
 					</div>
 				</div>
 				<h2 style="margin-top: 20px; display: inline-block; margin-bottom: 0">Стоимость публикации:</h2>
@@ -111,7 +114,7 @@
 					<input id="likes_to_count" onblur="price();" value="10">
 					<p>Цена от лайков (%):</p>
 					<input id="likes_to_price" onblur="price();" value="50">
-<!-- 					<p>Процент от подписчиков:</p>
+<!-- 			<p>Процент от подписчиков:</p>
 					<input id="subscribers_to_count" onblur="price();" value="5">
 					<p>Цена от подписчиков (%):</p>
 					<input id="subscribers_to_price" onblur="price();" value="25"> -->
