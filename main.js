@@ -46,16 +46,53 @@ function price(){
 
 
 	if((SUBSCRIBERS / 100) * SUBSCRIBERS_TO_ALL <= (VIEWS / 100) * SUBSCRIBERS_TO_ALL) 
+		rating += 0.5;
+	else
+		rating -= 0.5;
+
+	if(LIKES >= (VIEWS / 100) * LIKES_TO_COUNT)
 		rating += 1;
+	else
+		rating -= 1;
+
+	if(LIKES >= (VIEWS / 100) * LIKES_TO_COUNT && (SUBSCRIBERS / 100) * SUBSCRIBERS_TO_ALL <= (VIEWS / 100) * LIKES_TO_COUNT)
+		rating += 1.5;
+	else 
+		rating -= 1.5;
 
 	if(COMMENTS >= (VIEWS / 100) * COMMENTS_TO_COUNT)
+		rating += 2;
+	else
+		rating -= 2;
+
+	if(COMMENTS >= (VIEWS / 100) * COMMENTS_TO_COUNT && (SUBSCRIBERS / 100) * SUBSCRIBERS_TO_ALL <=  (VIEWS / 100) * COMMENTS_TO_COUNT)
 		rating += 2.5;
-		
-	if(LIKES >= (VIEWS / 100) * LIKES_TO_COUNT)
-		rating += 1.5;
+	else
+		rating -= 2.5;
 
 	if(rating < 0)
 		rating = 0
+
+	if(rating > 5)
+		rating = 5
+
+	if(rating == 5) 
+		price *= 1.5
+	
+	if(rating >= 4 && rating < 5)
+		price *= 1.25
+
+	if(rating >= 3 && rating < 4)
+		price *= 1.25
+	
+	if(rating >= 2 && rating < 3)
+		price /= 1.5
+
+	if(rating >= 1 && rating < 2) 
+		price /= 1.75
+	
+	if(rating == 0 || rating < 1)
+		price /= 2
 
 	document.getElementById("blogger_rating").value = rating + " из 5";
 	document.getElementById("price_per_task").value = parseInt(price) + "р";
