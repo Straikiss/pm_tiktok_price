@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<title>ТикТок цена за публикацию</title>
+		<title>ТикТок рекомендованная цена</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
 			* {
@@ -21,7 +21,7 @@
 				display: block;
 				outline: none;
 				padding: 10px;
-				width: 180px;
+				width: 200px;
 			}
 			input:last-of-type {
 				margin-bottom: 0;
@@ -75,49 +75,67 @@
 	<body onload="price()">
 		<div class="row">
 			<div class="block-def-content mr">
-				<h2>Данные ТикТок</h2>
+				<h2>Данные из ТикТок по 3 последним видео</h2>
 				<div class="row">
 					<div class="block-def mr">
 						<p>Просмотров за 1 видео:</p>
-						<input id="view_1" onblur="price();" value="1261">
+						<input id="view_1" onblur="price();" value="511300">
 						<p>Просмотров за 2 видео:</p>
-						<input id="view_2" onblur="price();" value="467">
+						<input id="view_2" onblur="price();" value="267">
 						<p>Просмотров за 3 видео:</p>
-						<input id="view_3" onblur="price();" value="209">
-						<p>Просмотров за 4 видео:</p>
-						<input id="view_4" onblur="price();" value="275400">
+						<input id="view_3" onblur="price();" value="528">
 						<input style="font-size: 16px; color: #adb5bd;" id="count_views" disabled>
 					</div>
-					<div class="block-def ml">
+					<div class="block-def ml mr">
 						<p>Лайков за 1 видео:</p>
-						<input id="like_1" onblur="price();" value="8">
+						<input id="like_1" onblur="price();" value="3813">
 						<p>Лайков за 2 видео:</p>
 						<input id="like_2" onblur="price();" value="9">
 						<p>Лайков за 3 видео:</p>
-						<input id="like_3" onblur="price();" value="7">
-						<p>Лайков за 4 видео:</p>
-						<input id="like_4" onblur="price();" value="2271">
+						<input id="like_3" onblur="price();" value="11">
 						<input style="font-size: 16px; color: #adb5bd;" id="count_likes" disabled>
 					</div>
+					<div class="block-def ml">
+						<p>Комментов за 1 видео:</p>
+						<input id="comment_1" onblur="price();" value="4">
+						<p>Комментов за 2 видео:</p>
+						<input id="comment_2" onblur="price();" value="1">
+						<p>Комментов за 3 видео:</p>
+						<input id="comment_3" onblur="price();" value="0">
+						<input style="font-size: 16px; color: #adb5bd;" id="count_comments" disabled>
+					</div>
 				</div>
-				<h2 style="margin-top: 20px; display: inline-block; margin-bottom: 0">Стоимость публикации:</h2>
-				<input id="price_per_task" disabled>
+				<div>
+					<h2 style="margin-top: 20px; display: inline-block; margin-bottom: 0">Стоимость публикации:</h2>
+					<input id="price_per_task" disabled>
+				</div>
+				<div>
+					<h2 style="margin-top: 10px; display: inline-block; margin-bottom: 0">Рейтинг блогера:</h2>
+					<input id="blogger_rating" disabled>
+				</div>
+				<p style="font-size: 16px; color: #adb5bd; margin-top: 20px;">Лайки к просмотрам - процент лайков от суммарного количества за 3 последние видео.</p>
+				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Цена от лайков - увеличение или снижение стоимости от процента в лайки к просмотрам.</p>
+				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Комменты к просмотрам - процент комментов от суммарного количества за 3 последние видео.</p>
+				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Цена от комментов - увеличение или снижение стоимости от процента в комменты к просмотрам.</p>
+				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Подписчиков - суммарное количество подписчиков на аккаунте.</p>
 			</div>
 			<div class="block-def-content ml">
 				<h2>Настройки</h2>
 				<div class="block-def">
 					<p>Цена за просмотр:</p>
 					<input id="price_per_view" onblur="price();" value="0.01">
-					<p>Подписчиков:</p>
-					<input id="subscribers" onblur="price();" value="464">
 					<p>Лайки к просмотрам (%):</p>
 					<input id="likes_to_count" onblur="price();" value="10">
 					<p>Цена от лайков (%):</p>
 					<input id="likes_to_price" onblur="price();" value="50">
-<!-- 			<p>Процент от подписчиков:</p>
-					<input id="subscribers_to_count" onblur="price();" value="5">
-					<p>Цена от подписчиков (%):</p>
-					<input id="subscribers_to_price" onblur="price();" value="25"> -->
+					<p>Комменты к просмотрам (%):</p>
+					<input id="comments_to_count" onblur="price();" value="10">
+					<p>Цена от комментов (%):</p>
+					<input id="comments_to_price" onblur="price();" value="50">
+					<p>Подписчиков:</p>
+					<input id="subscribers" onblur="price();" value="882">
+					<p>Подписчиков к всему (%):</p>
+					<input id="subscribers_to_all" onblur="price();" value="10">
 				</div>
 			</div>
 		</div>
