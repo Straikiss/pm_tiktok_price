@@ -21,7 +21,7 @@
 				display: block;
 				outline: none;
 				padding: 10px;
-				width: 200px;
+				width: 220px;
 			}
 			input:last-of-type {
 				margin-bottom: 0;
@@ -79,63 +79,54 @@
 				<div class="row">
 					<div class="block-def mr">
 						<p>Просмотров за 1 видео:</p>
-						<input id="view_1" onblur="price();" value="511300">
+						<input id="view_1" onblur="price();" value="7013">
 						<p>Просмотров за 2 видео:</p>
-						<input id="view_2" onblur="price();" value="267">
+						<input id="view_2" onblur="price();" value="25800">
 						<p>Просмотров за 3 видео:</p>
-						<input id="view_3" onblur="price();" value="528">
+						<input id="view_3" onblur="price();" value="10600">
 						<input style="font-size: 16px; color: #adb5bd;" id="count_views" disabled>
 					</div>
 					<div class="block-def ml mr">
 						<p>Лайков за 1 видео:</p>
-						<input id="like_1" onblur="price();" value="3813">
+						<input id="like_1" onblur="price();" value="1351">
 						<p>Лайков за 2 видео:</p>
-						<input id="like_2" onblur="price();" value="9">
+						<input id="like_2" onblur="price();" value="4772">
 						<p>Лайков за 3 видео:</p>
-						<input id="like_3" onblur="price();" value="11">
+						<input id="like_3" onblur="price();" value="1873">
 						<input style="font-size: 16px; color: #adb5bd;" id="count_likes" disabled>
 					</div>
 					<div class="block-def ml">
 						<p>Комментов за 1 видео:</p>
-						<input id="comment_1" onblur="price();" value="4">
+						<input id="comment_1" onblur="price();" value="77">
 						<p>Комментов за 2 видео:</p>
-						<input id="comment_2" onblur="price();" value="1">
+						<input id="comment_2" onblur="price();" value="45">
 						<p>Комментов за 3 видео:</p>
-						<input id="comment_3" onblur="price();" value="0">
+						<input id="comment_3" onblur="price();" value="19">
 						<input style="font-size: 16px; color: #adb5bd;" id="count_comments" disabled>
 					</div>
 				</div>
 				<div>
-					<h2 style="margin-top: 20px; display: inline-block; margin-bottom: 0">Стоимость публикации:</h2>
-					<input id="price_per_task" disabled>
+					<h2 style="margin-top: 20px; display: inline-block; margin-bottom: 0">Стоимость:</h2>
+					<input id="price_per_task" disabled style="width: fit-content;">
 				</div>
 				<div>
-					<h2 style="margin-top: 10px; display: inline-block; margin-bottom: 0">Рейтинг блогера:</h2>
+					<h2 style="margin-top: 10px; display: inline-block; margin-bottom: 0">Рейтинг:</h2>
 					<input id="blogger_rating" disabled>
 				</div>
-				<p style="font-size: 16px; color: #adb5bd; margin-top: 20px;">Лайки к просмотрам - процент лайков от суммарного количества за 3 последние видео.</p>
-				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Цена от лайков - увеличение или снижение стоимости от процента в лайки к просмотрам.</p>
-				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Комменты к просмотрам - процент комментов от суммарного количества за 3 последние видео.</p>
-				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Цена от комментов - увеличение или снижение стоимости от процента в комменты к просмотрам.</p>
-				<p style="font-size: 16px; color: #adb5bd; margin-top: 5px;">Подписчиков - суммарное количество подписчиков на аккаунте.</p>
 			</div>
 			<div class="block-def-content ml">
 				<h2>Настройки</h2>
 				<div class="block-def">
 					<p>Цена за просмотр:</p>
-					<input id="price_per_view" onblur="price();" value="0.01">
+					<input id="price_per_view" onblur="price();" disabled>
 					<p>Лайки к просмотрам (%):</p>
-					<input id="likes_to_count" onblur="price();" value="10">
+					<input id="likes_to_count" onblur="price();" disabled>
 					<p>Цена от лайков (%):</p>
-					<input id="likes_to_price" onblur="price();" value="50">
-					<p>Комменты к просмотрам (%):</p>
-					<input id="comments_to_count" onblur="price();" value="10">
+					<input id="likes_to_price" onblur="price();" disabled>
+					<p>Комменты к лайкам (%):</p>
+					<input id="comments_to_count" onblur="price();" disabled>
 					<p>Цена от комментов (%):</p>
-					<input id="comments_to_price" onblur="price();" value="50">
-					<p>Подписчиков:</p>
-					<input id="subscribers" onblur="price();" value="882">
-					<p>Подписчиков к всему (%):</p>
-					<input id="subscribers_to_all" onblur="price();" value="10">
+					<input id="comments_to_price" onblur="price();" disabled>
 				</div>
 			</div>
 		</div>
