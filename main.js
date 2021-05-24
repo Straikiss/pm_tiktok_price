@@ -61,7 +61,7 @@ function price(){
 		rating += 5;
 	}
 	else if(LIKES >= VIEWS * 5) {
-		price += price * LIKES_TO_PRICE;
+// 		price += price * LIKES_TO_PRICE;
 		rating += 4;
 	}
 	else{
