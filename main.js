@@ -31,7 +31,8 @@ function price(){
 
 	pm_set("likes_to_count", 10);
 	pm_set("likes_to_price", 25);
-
+	pm_set("price_per_view", 0.05);
+	
 	let VIEWS_1 = pm_get("view_1");
 	let VIEWS_2 = pm_get("view_2");
 	let VIEWS_3 = pm_get("view_3");
@@ -39,7 +40,6 @@ function price(){
 	let LIKES_1 = pm_get("like_1");
 	let LIKES_2 = pm_get("like_2");
 	let LIKES_3 = pm_get("like_3");
-
 
 	let LIKES_TO_COUNT = pm_get("likes_to_count");
 	let LIKES_TO_PRICE = pm_get("likes_to_price");
